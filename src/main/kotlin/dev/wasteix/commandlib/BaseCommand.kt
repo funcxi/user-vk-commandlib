@@ -1,23 +1,22 @@
 package dev.wasteix.commandlib
 
 import dev.wasteix.commandlib.annotation.*
-import dev.wasteix.commandlib.entity.CommandContent
-import dev.wasteix.commandlib.entity.content.CommandContentData
-import dev.wasteix.commandlib.entity.dialog.UserDialogStateEntity
-import dev.wasteix.commandlib.entity.impl.CommandEntity
-import dev.wasteix.commandlib.entity.impl.DialogStateEntity
-import dev.wasteix.commandlib.entity.impl.SubCommandEntity
-import dev.wasteix.commandlib.entity.sender.CommandSender
+import dev.wasteix.commandlib.model.CommandEntity
+import dev.wasteix.commandlib.model.DialogStateEntity
+import dev.wasteix.commandlib.model.SubCommandEntity
+import dev.wasteix.commandlib.model.data.CommandContentData
+import dev.wasteix.commandlib.model.data.UserDialogStateData
+import dev.wasteix.commandlib.model.sender.CommandSender
 import java.util.*
 
-abstract class BaseCommand(open vararg val commandNames: String) : CommandContent() {
+abstract class BaseCommand(open vararg val commandNames: String) {
     var defaultMean: CommandEntity? = null
     var defaultDialogState: DialogStateEntity? = null
 
     val dialogStates: MutableMap<String, DialogStateEntity> = HashMap()
     val subCommands: MutableMap<String, SubCommandEntity> = HashMap()
 
-    val userDialogStates: MutableMap<Int, UserDialogStateEntity> = HashMap()
+    val userDialogStates: MutableMap<Int, UserDialogStateData> = HashMap()
 
     val commandContent: CommandContentData = CommandContentData(this)
 
@@ -34,7 +33,7 @@ abstract class BaseCommand(open vararg val commandNames: String) : CommandConten
                 method.isAccessible = true
 
                 if (method.isAnnotationPresent(Default::class.java))
-                    defaultMean = dev.wasteix.commandlib.entity.impl.CommandEntity(
+                    defaultMean = CommandEntity(
                         method,
                         CommandContentData(method)
                     )
@@ -81,7 +80,7 @@ abstract class BaseCommand(open vararg val commandNames: String) : CommandConten
     }
 
     fun setState(commandSender: CommandSender, state: String, value: Any? = null) {
-        userDialogStates[commandSender.message.fromId] = UserDialogStateEntity(
+        userDialogStates[commandSender.message.fromId] = UserDialogStateData(
                 commandSender, state, value,
                 System.currentTimeMillis() + dialogTimeout!!.unit.toMillis(dialogTimeout!!.value)
             )

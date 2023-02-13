@@ -2,9 +2,9 @@ package dev.wasteix.commandlib.utility
 
 import com.vk.api.sdk.objects.messages.Message
 import dev.wasteix.commandlib.BaseCommand
-import dev.wasteix.commandlib.entity.AbstractCommandEntity
-import dev.wasteix.commandlib.entity.content.CommandContentData
-import dev.wasteix.commandlib.entity.sender.CommandSender
+import dev.wasteix.commandlib.model.BaseCommandEntity
+import dev.wasteix.commandlib.model.data.CommandContentData
+import dev.wasteix.commandlib.model.sender.CommandSender
 import dev.wasteix.commandlib.service.CommandService
 import java.lang.reflect.Method
 import java.util.*
@@ -14,13 +14,13 @@ fun Method.execute(vararg parameters: Any) {
     val message = parameters[1] as Message
     val args = parameters[2] as Array<String>
     val commandService = parameters[3] as CommandService
-    val commandEntity = parameters[4] as AbstractCommandEntity
+    val commandEntity = parameters[4] as BaseCommandEntity
     val commandSender = commandService.commandSender.getConstructor(
         Message::class.java,
         Array<String>::class.java,
         CommandService::class.java,
         BaseCommand::class.java,
-        AbstractCommandEntity::class.java
+        BaseCommandEntity::class.java
     ).newInstance(message, args, commandService, command, commandEntity)
 
     try {

@@ -1,4 +1,4 @@
-package dev.wasteix.commandlib.entity.content
+package dev.wasteix.commandlib.model.data
 
 import dev.wasteix.commandlib.BaseCommand
 import dev.wasteix.commandlib.annotation.Cooldown

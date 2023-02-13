@@ -1,14 +1,13 @@
-package dev.wasteix.commandlib.entity.sender
+package dev.wasteix.commandlib.model.sender
 
 import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
-import com.vk.api.sdk.client.actors.Actor
 import com.vk.api.sdk.objects.messages.Forward
 import com.vk.api.sdk.objects.messages.Message
 import com.vk.api.sdk.queries.messages.MessagesSendQuery
 import dev.wasteix.commandlib.BaseCommand
-import dev.wasteix.commandlib.entity.AbstractCommandEntity
+import dev.wasteix.commandlib.model.BaseCommandEntity
 import dev.wasteix.commandlib.service.CommandService
 import java.util.*
 import kotlin.random.Random
@@ -20,7 +19,7 @@ open class CommandSender(
     open val args: Array<String>,
     open val commandService: CommandService,
     open val command: BaseCommand,
-    open val commandEntity: AbstractCommandEntity
+    open val commandEntity: BaseCommandEntity
 ) {
     private val forward = (Forward())
         .setIsReply(true)

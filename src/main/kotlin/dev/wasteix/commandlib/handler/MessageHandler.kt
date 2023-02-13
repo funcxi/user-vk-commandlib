@@ -3,7 +3,7 @@ package dev.wasteix.commandlib.handler
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.vk.api.sdk.objects.messages.Message
-import dev.wasteix.commandlib.entity.sender.GSON
+import dev.wasteix.commandlib.model.sender.GSON
 import dev.wasteix.commandlib.service.CommandService
 import java.util.*
 

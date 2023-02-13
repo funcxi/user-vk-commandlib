@@ -5,7 +5,7 @@ import com.vk.api.sdk.client.VkApiClient
 import com.vk.api.sdk.client.actors.UserActor
 import com.vk.api.sdk.httpclient.HttpTransportClient
 import dev.wasteix.commandlib.BaseCommand
-import dev.wasteix.commandlib.entity.sender.CommandSender
+import dev.wasteix.commandlib.model.sender.CommandSender
 import dev.wasteix.commandlib.handler.MessageHandler
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit

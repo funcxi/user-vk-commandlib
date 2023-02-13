@@ -1,7 +1,7 @@
 package dev.wasteix.commandlib.service
 
 import dev.wasteix.commandlib.BaseCommand
-import dev.wasteix.commandlib.entity.sender.CommandSender
+import dev.wasteix.commandlib.model.sender.CommandSender
 import java.util.*
 
 class CommandServiceBuilder {
