@@ -5,6 +5,7 @@ import dev.wasteix.commandlib.annotation.DialogState
 import dev.wasteix.commandlib.model.data.CommandContentData
 import dev.wasteix.commandlib.utility.execute
 import java.lang.reflect.Method
+
 sealed class BaseCommandEntity(
     open val method: Method,
     open val commandContent: CommandContentData
