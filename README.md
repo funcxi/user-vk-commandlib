@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.wasteix:user-vk-commandlib:1.0.0'
+    implementation 'com.github.wasteix:user-vk-commandlib:1.0.1'
 }
 ```
 
@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.wasteix:user-vk-commandlib:1.0.0")
+    implementation("com.github.wasteix:user-vk-commandlib:1.0.1")
 }
 ```
 
@@ -37,7 +37,7 @@ dependencies {
 <dependency>
   <groupId>com.github.wasteix</groupId>
   <artifactId>user-vk-commandlib</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
